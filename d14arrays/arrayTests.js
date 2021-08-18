@@ -8,6 +8,7 @@ const myExports = require("./arrays.js");  //with node need the name of your fil
 const maxOfThree = myExports.maxOfThree;  //do this for all of the functions used in the Mocha tests
 const multiply = myExports.multiply;
 const sum = myExports.sum;
+const generateArray = myExports.generateArray;
 
 
 /* global assert maxOfThree sum multiply findLongestWord reverseArray reverseArrayInPlace scoreExams */
@@ -101,5 +102,21 @@ describe("score exam", function () {
     const correctAnswers = [3, 1, 2,4];
     it("exam with 3 students", function () {
         assert.deepEqual(scoreExams(studentAnswers, correctAnswers), [3,2,3]);
+    });
+});
+
+/* 6. Write a function that takes two integers as inputs and returns a 2-dimensional array containing sequential numbers across each row as follows: */
+describe("generate array", function () {
+    const expected33 = [ [1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    const expected23 = [ [1, 2, 3], [4, 5, 6]];
+    const expected21 = [ [1], [2]];
+    it("expected33", function () {
+        assert.deepEqual(generateArray(3,3), expected33);
+    });
+    it("expected23", function () {
+        assert.deepEqual(generateArray(2,3), expected23);
+    });
+    it("expected21", function () {
+        assert.deepEqual(generateArray(2, 1), expected21);
     });
 });

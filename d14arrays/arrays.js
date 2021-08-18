@@ -2,7 +2,7 @@
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser
 */ 
-module.exports = {maxOfThree, sum, multiply }; //add all of your function names here that you need for the node mocha tests
+module.exports = {maxOfThree, sum, multiply, generateArray }; //add all of your function names here that you need for the node mocha tests
 
 /**
  * 
@@ -39,4 +39,23 @@ function multiply(arr){
 
     return tot;
 
+}
+
+/**
+ * 
+ * @param {number} rows is number of rows
+ * @param {number} cols is number of cols
+ * @returns {Array} 2-d array
+ */
+function generateArray(rows, cols){
+    let newArray = [];
+    for (let i = 0; i < rows; i++) {
+        newArray.push([]);
+        for (let j = 0; j < cols; j++){
+            // const rowNumber = i + 1;
+            // cpmst colNumber = j + 1;
+            newArray[i][j] = 1 + (i * cols) + j;
+        }
+    }
+    return newArray;
 }
